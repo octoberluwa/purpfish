@@ -1,2 +1,2 @@
-# purpfish
-A learning web application for kids,
+# PurpFish
+A learning web application for kids!
