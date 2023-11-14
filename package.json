@@ -1,0 +1,15 @@
+{
+  "name": "purpfish",
+  "version": "1.0.0",
+  "description": "A learning web application for kids!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
