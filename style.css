@@ -1,3 +1,40 @@
+:root {
+    --accent-colour: hsla(295deg, 85%, 35%, 0.85);
+    --background-colour: hsla(270deg, 10%, 15%, 0.85);
+}
+
 body {
-    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--background-colour);
+}
+
+main {
+    width: 85vw;
+    padding: 2.5em;
+    margin: 2.5em;
+
+    border: 0.25em solid var(--accent-colour);
+    border-radius: 0.325em;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-family: monospace;
+    font-weight: bold;
+
+    text-decoration: underline;
+    color: var(--accent-colour);
+}
+
+#main-header {
+    font-size: 6.5em;
+    text-decoration: none;
+}
+
+p {
+    font-family: monospace;
+    font-size: 1.625em;
 }
