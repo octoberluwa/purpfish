@@ -16,6 +16,10 @@ function generateQuestionString() {
     return question
 }
 
+function generateAnswer() {
+    
+}
+
 describe("generateQuestionString()", () => {
     it("is truthy?", () => {
         let question = generateQuestionString()
