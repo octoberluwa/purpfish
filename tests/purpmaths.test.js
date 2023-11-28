@@ -12,7 +12,7 @@ function randomNumberFrom0toX(x) {
 
 function generateQuestionString() {
     let timeTableNumber = timeTableNumbers[randomNumberFrom0toX(timeTableNumbers.length)] 
-    question = `${timeTableNumber} x ${randomNumberFrom1toX(12)}`
+    question = `${timeTableNumber} x ${randomNumberFrom1toX(12)}?`
     return question
 }
 
