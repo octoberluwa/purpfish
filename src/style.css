@@ -4,6 +4,17 @@
     --background-colour: hsla(270deg, 10%, 8.25%, 1.0);
 }
 
+@keyframes flashOnce {
+    0% {
+        color: var(--text-colour);
+    }
+    49% {
+        color: var(--accent-colour);
+    }
+    99% {
+        color: var(--text-colour);
+    }
+}
 body {
     display: flex;
     flex-direction: column;
@@ -33,6 +44,11 @@ h1 {
 #main-header {
     font-size: 6.5em;
     text-decoration: none;
+    transition: font-size 0.5s;
+}
+
+#main-header:hover {
+    font-size: 6.625em;
 }
 
 
@@ -45,4 +61,15 @@ p, a{
 
 a {
     font-weight: bold;
+
+    animation: none;
+    transition: font-size 0.5s;
+}
+
+a:hover {
+    font-size: 1.725em;
+}
+
+a:active {
+    animation: flashOnce 0.5s;
 }
