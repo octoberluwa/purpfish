@@ -18,7 +18,6 @@ function generateProductPair() {
     randomNumberFrom1to12 = randomNumberFrom1toX(12)
 }
 function generateQuestionString() {
-    generateProductPair()
     let question = `${timeTableNumber} x ${randomNumberFrom1to12}?`
     return question
 }
@@ -29,7 +28,6 @@ function generateAnswer() {
 
     let answer = timeTableNumber * randomNumberFrom1to12
     return answer
-
 }
 
 
