@@ -1,0 +1,80 @@
+:root {
+    --accent-colour: hsla(295deg, 85%, 35%, 0.85);
+    --text-colour: hsla(300deg, 65%, 92.5%, 0.85);
+    --background-colour: hsla(270deg, 10%, 8.25%, 1.0);
+}
+
+@keyframes flashOnce {
+    0% {
+        color: var(--text-colour);
+    }
+    49% {
+        color: var(--accent-colour);
+    }
+    99% {
+        color: var(--text-colour);
+    }
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--background-colour);
+}
+
+main {
+    width: 85vw;
+    padding: 2.5em;
+    margin: 2.5em;
+
+    border: 0.25em solid var(--accent-colour);
+    border-radius: 0.325em;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-family: monospace;
+    font-weight: bold;
+
+    text-decoration: underline;
+    color: var(--accent-colour);
+}
+
+#main-header {
+    font-size: 6.5em;
+    text-decoration: none;
+    transition: font-size 0.5s;
+}
+
+#main-header:hover {
+    font-size: 6.625em;
+}
+
+
+p, a{
+    font-family: monospace;
+    font-size: 1.625em;
+
+    color: var(--text-colour);
+}
+
+#times-table-question {
+    font-size: 4.5em;
+    font-weight: bolder;
+}
+
+a {
+    font-weight: bold;
+
+    animation: none;
+    transition: font-size 0.5s;
+}
+
+a:hover {
+    font-size: 1.725em;
+}
+
+a:active {
+    animation: flashOnce 0.5s;
+}
