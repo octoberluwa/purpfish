@@ -59,7 +59,9 @@ p, a{
     color: var(--text-colour);
 }
 
-#times-table-question, #times-table-answer {
+#times-table-section {
+    margin: 0.125em;
+    padding: 0.125em;
     text-align: center;
     font-size: 4.5em;
 }
