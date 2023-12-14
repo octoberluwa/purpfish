@@ -59,8 +59,12 @@ p, a{
     color: var(--text-colour);
 }
 
-#times-table-question {
+#times-table-question, #times-table-answer {
+    text-align: center;
     font-size: 4.5em;
+}
+
+#times-table-question {
     font-weight: bolder;
 }
 

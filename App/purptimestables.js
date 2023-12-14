@@ -7,7 +7,7 @@ let timeTableNumber
 
 
 function randomNumberFrom1toX(x) {
-    let number = Math.floor((Math.random() * x) + 1)
+    let number = Math.floor(Math.random() * x) + 1
     return number
 }
 
@@ -35,3 +35,5 @@ function presentQuestion() {
     TIMES_TABLE_ANSWER.innerText = generateAnswer()
     TIMES_TABLE_QUESTION.innerText = generateQuestion()
 }
+
+presentQuestion()
