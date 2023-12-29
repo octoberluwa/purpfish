@@ -1,8 +1,12 @@
-export const App = () => {
-  return (
-    <div>
+import { Fragment } from "react"
 
-    </div>
+const App = () => {
+  return (
+    <>
+      <p>
+        
+      </p>
+    </>
   )
 }
 
