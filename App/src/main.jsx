@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import TimesTablesApp from './components/TimesTablesApp.jsx'
+import App from './App.jsx'
+import { BrowserRouter } from 'react-router-dom'
 import './style.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <TimesTablesApp />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 )

@@ -42,15 +42,10 @@ h1 {
 }
 
 #main-header {
+    text-align: center;
     font-size: 6.5em;
     text-decoration: none;
-    transition: font-size 0.5s;
 }
-
-#main-header:hover {
-    font-size: 6.625em;
-}
-
 
 p, a{
     font-family: monospace;
