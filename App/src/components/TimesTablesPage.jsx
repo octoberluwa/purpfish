@@ -47,8 +47,9 @@ const TimesTablesPage = () => {
           <div id="times-table-section">
             <p id="times-table-question">{ Question }</p>
             <p id="times-table-answer">{ Answer }</p>
+            <input type="text" id="times-table-input"></input><br/>
+            <button onClick={ generateNextProductPair } id="next-question-button">Next Question</button>
           </div>
-          <button onClick={ generateNextProductPair }>Next Question</button>
           <p>Work In Progress.</p>
         </main>
     </>
