@@ -4,6 +4,15 @@
     --background-colour: hsla(270deg, 10%, 8.25%, 1.0);
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -19,6 +28,8 @@ main {
 
     border: 0.25em solid var(--accent-colour);
     border-radius: 0.325em;
+
+    animation: fadeIn 0.25s;
 }
 
 h1 {
@@ -78,7 +89,7 @@ button {
     color: var(--text-colour);
 
     border: 0.085em solid var(--accent-colour);
-    border-radius: 0.175em;   
+    border-radius: 0.175em; 
 }
 
 button:active {
@@ -90,17 +101,17 @@ input {
     font-size: 1em;
     color: var(--text-colour);
 
-    border: 0.1125em solid var(--accent-colour);
+    border: 0.0825em solid var(--accent-colour);
     border-radius: 0.175em;
 
     transition: 0.5s;
 }
 
 input:focus {
-    border: 0.1125em solid var(--accent-colour);
+    border: 0.0825em solid var(--accent-colour);
     outline: 0.25em solid var(--text-colour);
 }
 
-#times-table-input {
-    width: 3.25em;  
+#times-table-answer-input {
+    width: 2.5em;  
 }
