@@ -1,0 +1,29 @@
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+const TimesTablesSettings = () => {
+  const timeTableCheckBoxesNumbers = [1,2,3,4,5,6,7,8,9,10,11,12]
+
+  const [TimeTableNumbers, setTimeTableNumbers] = useState([])
+
+  function timesTableCheckboxHandler() {
+
+  }
+  return (
+    <>
+        <main>
+            <h1>{ TimeTableNumbers }</h1>
+            <div id="times-table-checkboxes">
+            {timeTableCheckBoxesNumbers.map(item => {
+                return (
+                    <label><input type='checkbox' name={item} value={item} onChange={timesTableCheckboxHandler}/>{item}</label>
+                )
+            })}
+            </div>
+            <Link to="/timestables">This part isn't finished yet you can redirect to the Times Table Page here.</Link>
+        </main>
+    </>
+  )
+}
+
+export default TimesTablesSettings

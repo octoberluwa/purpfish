@@ -37,11 +37,13 @@ const TimesTablesPage = () => {
   const [Answer, setAnswer] = useState(generateAnswer())
   const [Question, setQuestion] = useState(generateQuestion())
   const [AnswerFeedback, setAnswerFeedback] = useState("")
+  const [IsAnswerSubmitted, setIsAnswerSubmitted] = useState(false)
   const UsersAnswer = useRef(null)
 
   function resetForNextQuestion() {
     setAnswerFeedback("")
     UsersAnswer.current.value = ""
+    setIsAnswerSubmitted(false)
   }
 
   function generateNextProductPair() {
@@ -54,10 +56,21 @@ const TimesTablesPage = () => {
   function markAnswer() {
     if (UsersAnswer.current.value == "") { return }
 
+    setIsAnswerSubmitted(true)
     if (UsersAnswer.current.value == Answer) {
       setAnswerFeedback("Correct!")
     } else {
       setAnswerFeedback(`The correct answer is ${Answer}.`)
+    }
+  }
+
+  function submitIfEnterKeyPressed(keyPressed) {
+    if (keyPressed.keyCode !== 13) { return }
+
+    if (IsAnswerSubmitted) {
+      generateNextProductPair()
+    } else {
+      markAnswer()
     }
   }
 
@@ -66,11 +79,11 @@ const TimesTablesPage = () => {
         <main>
           <div id="times-table-section">
             <p id="times-table-question">{ Question }</p>
-            <p id="times-table-answer">{ Answer }</p>
-            <input ref={UsersAnswer} type="text" id="times-table-answer-input"></input><br/>
-            <button onClick={ markAnswer } id="submit-answer-button">Submit</button><br/>
-            <button onClick={ generateNextProductPair } id="next-question-button">Next Question</button>
-            <p>{ AnswerFeedback }</p>
+            <input ref={UsersAnswer} type="text" id="times-table-answer-input" onKeyDown={ submitIfEnterKeyPressed }></input><br/>
+            {!IsAnswerSubmitted && 
+            <button id="submit-answer-button" onClick={ markAnswer }>Submit</button>}
+            {IsAnswerSubmitted && <button id="next-question-button" onClick={ generateNextProductPair }>Next Question</button>}
+            <p id="answer-feedback">{ AnswerFeedback }</p>
           </div>
           <p>Work In Progress.</p>
         </main>
