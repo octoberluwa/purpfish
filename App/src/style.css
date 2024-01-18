@@ -1,5 +1,5 @@
 :root {
-    --accent-colour: hsla(295deg, 85%, 35%, 0.85);
+    --accent-colour: hsla(295deg, 85%, 35%, 0.95);
     --text-colour: hsla(300deg, 65%, 92.5%, 0.85);
     --background-colour: hsla(270deg, 10%, 8.25%, 1.0);
 }
@@ -48,7 +48,7 @@ h1 {
     text-decoration: none;
 }
 
-p, a{
+p, a, label {
     font-family: monospace;
     font-size: 1.625em;
 
@@ -121,6 +121,11 @@ input:focus {
     outline: 0.25em solid var(--text-colour);
 }
 
+label {
+    display: block;
+    cursor: pointer;
+}
+
 #times-table-answer-input {
     width: 2.5em;  
 }
@@ -128,4 +133,22 @@ input:focus {
 #times-table-checkboxes {
     display: flex;
     flex-direction: column;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    
+    width: 1.25em;
+    height: 1.25em;
+
+    vertical-align: bottom;
+    position: relative;
+    top: 0.25em;
+
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--accent-colour);
 }
