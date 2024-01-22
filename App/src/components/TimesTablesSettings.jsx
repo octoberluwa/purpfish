@@ -6,13 +6,17 @@ const TimesTablesSettings = () => {
 
   const [TimeTableNumbers, setTimeTableNumbers] = useState([])
 
-  function timesTableCheckboxHandler() {
-
+  const timesTableCheckboxHandler = (event) => {
+    if (event.target.checked) {
+      setTimeTableNumbers([...TimeTableNumbers, event.target.value])
+    } else {
+      setTimeTableNumbers(TimeTableNumbers.filter(number => number !== event.target.value))
+    }
   }
   return (
     <>
         <main>
-            <h1>{ TimeTableNumbers }</h1>
+            <a>{ TimeTableNumbers }</a>
             <div id="times-table-checkboxes">
             {timeTableCheckBoxesNumbers.map(item => {
                 return (

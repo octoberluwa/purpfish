@@ -27,7 +27,16 @@ function generateAnswer() {
     return answer
 }
 
+function changeTimesTableNumbers(list, num) {
+    if (list.includes(num)) {
+        list = list.push(num)
+    } else {
+        const index = list.indexOf(num)
+        list.splice(index, 1)
+    }
 
+    return list
+}
 
 
 describe("generateQuestionString()", () => {
@@ -70,5 +79,11 @@ describe("randomElementFromArray()", () => {
     it("is truthy?", () => {
         let testArray = randomElementFromArray(timeTableNumbers)
         expect(testArray).toBeTruthy()
+    })
+})
+
+describe("changeTimesTableNumbers()", () => {
+    it("is truthy", () => {
+        expect(changeTimesTableNumbers([1,2,3,4], 5)).toBeTruthy()
     })
 })
