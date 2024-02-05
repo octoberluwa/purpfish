@@ -16,13 +16,13 @@ const TimesTablesSettings = () => {
   return (
     <>
         <main>
-            <a>{ TimeTableNumbers }</a>
             <div id="times-table-checkboxes">
-            {timeTableCheckBoxesNumbers.map(item => {
-                return (
-                    <label><input type='checkbox' name={item} value={item} onChange={timesTableCheckboxHandler}/>{item}</label>
-                )
-            })}
+              <a>{ TimeTableNumbers }</a>
+              {timeTableCheckBoxesNumbers.map(item => {
+                  return (
+                      <label><input type='checkbox' name={item} value={item} onChange={timesTableCheckboxHandler}/>{item}</label>
+                  )
+              })}
             </div>
             <Link to="/timestables">This part isn't finished yet you can redirect to the Times Table Page here.</Link>
         </main>

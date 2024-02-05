@@ -2,6 +2,27 @@ import React, { useRef } from 'react'
 import { useState } from 'react'
 
 const TimesTablesPage = () => {
+  const timeTableCheckBoxesNumbers = [1,2,3,4,5,6,7,8,9,10,11,12]
+
+  const [TimeTableNumbers, setTimeTableNumbers] = useState([])
+
+  const timesTableCheckboxHandler = (event) => {
+    if (event.target.checked) {
+      setTimeTableNumbers([...TimeTableNumbers, event.target.value])
+    } else {
+      setTimeTableNumbers(TimeTableNumbers.filter(number => number !== event.target.value))
+    }
+  }
+
+  const [IsTimesTablesSettingsSubmmited, setIsTimesTablesSettingsSubmitted] = useState(false)
+
+  function submitTimesTableNumbers() {
+    setIsTimesTablesSettingsSubmitted(true)
+  }
+
+
+
+
   const timeTableNumbers = [1, 2, 5, 10] //Should be null after we finish testing.
   let randomNumberFrom1to12
   let timeTableNumber
@@ -33,6 +54,11 @@ const TimesTablesPage = () => {
   }
 
   generateProductPair()
+
+
+
+
+
 
   const [Answer, setAnswer] = useState(generateAnswer())
   const [Question, setQuestion] = useState(generateQuestion())
@@ -77,14 +103,25 @@ const TimesTablesPage = () => {
   return (
     <>
         <main>
-          <div id="times-table-section">
+          {IsTimesTablesSettingsSubmmited && <div id="times-table-section">
             <p id="times-table-question">{ Question }</p>
             <input ref={UsersAnswer} type="text" id="times-table-answer-input" onKeyDown={ submitIfEnterKeyPressed }></input><br/>
             {!IsAnswerSubmitted && 
             <button id="submit-answer-button" onClick={ markAnswer }>Submit</button>}
             {IsAnswerSubmitted && <button id="next-question-button" onClick={ generateNextProductPair }>Next Question</button>}
             <p id="answer-feedback">{ AnswerFeedback }</p>
-          </div>
+          </div>}
+
+          
+          {!IsTimesTablesSettingsSubmmited && <div id="times-table-checkboxes">
+            <a>{ TimeTableNumbers }</a>
+            {timeTableCheckBoxesNumbers.map(item => {
+                return (
+                    <label><input type='checkbox' name={item} value={item} onChange={timesTableCheckboxHandler}/>{item}</label>
+                )
+            })}
+            <button onClick={submitTimesTableNumbers}>Submit</button>
+          </div>}
           <p>Work In Progress.</p>
         </main>
     </>
