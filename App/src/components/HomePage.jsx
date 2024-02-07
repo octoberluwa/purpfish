@@ -11,7 +11,7 @@ const HomePage = () => {
                 Select one of the topics below to begin learning with PurpFish!.<br/>
             </p>
             <h1>PurpMaths: </h1>
-            <Link to="/timestablessettings">Times Tables</Link>
+            <Link to="/timestables">Times Tables</Link>
         </main>
     </>
   )

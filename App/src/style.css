@@ -22,9 +22,9 @@ body {
 }
 
 main {
-    width: 85vw;
+    width: 75vw;
     padding: 2.5em;
-    margin: 2.5em;
+    margin: 0px;
 
     border: 0.25em solid var(--accent-colour);
     border-radius: 0.325em;
@@ -44,7 +44,7 @@ h1 {
 
 #main-header {
     text-align: center;
-    font-size: 6.5em;
+    font-size: 6vw;
     text-decoration: none;
 }
 
@@ -130,9 +130,16 @@ label {
     width: 2.5em;  
 }
 
-#times-table-checkboxes {
+#times-table-settings {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#times-table-checkboxes {
+    display: flex;
+    flex-flow: row wrap;
 }
 
 input[type="checkbox"] {
@@ -150,4 +157,8 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked {
     background-color: var(--accent-colour);
+}
+
+#submit-times-table-settings {
+    font-size: 1.25em;
 }

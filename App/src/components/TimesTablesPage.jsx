@@ -17,17 +17,18 @@ const TimesTablesPage = () => {
   const [IsTimesTablesSettingsSubmmited, setIsTimesTablesSettingsSubmitted] = useState(false)
 
   function submitTimesTableNumbers() {
+    generateProductPair()
+    setAnswer(generateAnswer())
+    setQuestion(generateQuestion())
     setIsTimesTablesSettingsSubmitted(true)
   }
 
 
 
 
-  const timeTableNumbers = [1, 2, 5, 10] //Should be null after we finish testing.
+  const timeTableNumbers = TimeTableNumbers
   let randomNumberFrom1to12
   let timeTableNumber
-
-  const TIMES_TABLE_ANSWER_INPUT = document.getElementById("times-table-answer-input")
 
   function randomNumberFrom1toX(x) {
       let number = Math.floor(Math.random() * x) + 1
@@ -53,15 +54,13 @@ const TimesTablesPage = () => {
       return answer
   }
 
-  generateProductPair()
 
 
 
 
 
-
-  const [Answer, setAnswer] = useState(generateAnswer())
-  const [Question, setQuestion] = useState(generateQuestion())
+  const [Answer, setAnswer] = useState(0)
+  const [Question, setQuestion] = useState(0)
   const [AnswerFeedback, setAnswerFeedback] = useState("")
   const [IsAnswerSubmitted, setIsAnswerSubmitted] = useState(false)
   const UsersAnswer = useRef(null)
@@ -113,14 +112,15 @@ const TimesTablesPage = () => {
           </div>}
 
           
-          {!IsTimesTablesSettingsSubmmited && <div id="times-table-checkboxes">
-            <a>{ TimeTableNumbers }</a>
-            {timeTableCheckBoxesNumbers.map(item => {
-                return (
-                    <label><input type='checkbox' name={item} value={item} onChange={timesTableCheckboxHandler}/>{item}</label>
-                )
-            })}
-            <button onClick={submitTimesTableNumbers}>Submit</button>
+          {!IsTimesTablesSettingsSubmmited && <div id="times-table-settings">
+            <div id="times-table-checkboxes">
+              {timeTableCheckBoxesNumbers.map(item => {
+                  return (
+                      <label><input type='checkbox' name={item} value={item} onChange={timesTableCheckboxHandler}/>{item}</label>
+                  )
+              })}
+            </div>
+            {!(TimeTableNumbers == ![]) && <button id="submit-times-table-settings"onClick={submitTimesTableNumbers}>Submit</button>}
           </div>}
           <p>Work In Progress.</p>
         </main>
