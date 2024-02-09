@@ -63,6 +63,10 @@ const TimesTablesPage = () => {
   const [Question, setQuestion] = useState(0)
   const [AnswerFeedback, setAnswerFeedback] = useState("")
   const [IsAnswerSubmitted, setIsAnswerSubmitted] = useState(false)
+  const [QuestionsGiven, setQuestionsGiven] = useState(1)
+  const [QuestionsAnswered, setQuestionsAnswered] = useState(0)
+  const [CorrectAnswers, setCorrectAnswers] = useState(0)
+  const [ScorePercentage, setScorePercentage] = useState(0)
   const UsersAnswer = useRef(null)
 
   function resetForNextQuestion() {
@@ -72,6 +76,8 @@ const TimesTablesPage = () => {
   }
 
   function generateNextProductPair() {
+    setQuestionsGiven(QuestionsGiven + 1)
+    setScorePercentage(Math.round((CorrectAnswers / QuestionsGiven) * 100))
     resetForNextQuestion()
     generateProductPair()
     setQuestion(generateQuestion())
@@ -84,9 +90,11 @@ const TimesTablesPage = () => {
     setIsAnswerSubmitted(true)
     if (UsersAnswer.current.value == Answer) {
       setAnswerFeedback("Correct!")
+      setCorrectAnswers(CorrectAnswers + 1)
     } else {
       setAnswerFeedback(`The correct answer is ${Answer}.`)
     }
+    setQuestionsAnswered(QuestionsAnswered + 1)
   }
 
   function submitIfEnterKeyPressed(keyPressed) {
@@ -102,17 +110,13 @@ const TimesTablesPage = () => {
   return (
     <>
         <main>
-          {IsTimesTablesSettingsSubmmited && <div id="times-table-section">
-            <p id="times-table-question">{ Question }</p>
-            <input ref={UsersAnswer} type="text" id="times-table-answer-input" onKeyDown={ submitIfEnterKeyPressed }></input><br/>
-            {!IsAnswerSubmitted && 
-            <button id="submit-answer-button" onClick={ markAnswer }>Submit</button>}
-            {IsAnswerSubmitted && <button id="next-question-button" onClick={ generateNextProductPair }>Next Question</button>}
-            <p id="answer-feedback">{ AnswerFeedback }</p>
-          </div>}
-
-          
           {!IsTimesTablesSettingsSubmmited && <div id="times-table-settings">
+            <p>
+              <b><i>Select the Times Tables that you want to practice:</i></b><br/>
+              <br/>
+              The Times Tables used will be randomised from the selection.<br/>
+              <br/>
+            </p>
             <div id="times-table-checkboxes">
               {timeTableCheckBoxesNumbers.map(item => {
                   return (
@@ -122,7 +126,21 @@ const TimesTablesPage = () => {
             </div>
             {!(TimeTableNumbers == ![]) && <button id="submit-times-table-settings"onClick={submitTimesTableNumbers}>Submit</button>}
           </div>}
-          <p>Work In Progress.</p>
+
+
+
+
+
+
+          {IsTimesTablesSettingsSubmmited && <div id="times-table-section">
+            <p id="times-table-question">{ Question }</p>
+            <input ref={UsersAnswer} type="text" id="times-table-answer-input" onKeyDown={ submitIfEnterKeyPressed }></input><br/>
+            {!IsAnswerSubmitted && 
+            <button id="submit-answer-button" onClick={ markAnswer }>Submit</button>}
+            {IsAnswerSubmitted && <button id="next-question-button" onClick={ generateNextProductPair }>Next Question</button>}
+            <p id="answer-feedback">{ AnswerFeedback }</p>
+            <p id="user-score">{ CorrectAnswers }/{ QuestionsAnswered }({ ScorePercentage }%)</p>
+          </div>}
         </main>
     </>
   )
