@@ -25,13 +25,14 @@ body {
 
     width: 100%;
     height: 100%;
+    margin: 0px;
     background-attachment: fixed;
 
     background-color: var(--background-colour);
 }
 
 main {
-    width: 75vw;
+    width: 65vw;
     padding: 2.5em;
     margin: 0px;
 
@@ -74,7 +75,7 @@ p, a, label {
     padding: 0.0625em;
 
     text-align: center;
-    font-size: 3.25em;
+    font-size: 2em;
 }
 
 #times-table-question {
@@ -125,12 +126,13 @@ input {
     text-align: center;
     font-size: 1em;
     color: var(--text-colour);
+    background-color: var(--background-colour);
 
     border: 0.0825em solid var(--accent-colour);
     border: 0.1em inset var(--accent-colour);
     border-radius: 0.175em;
 
-    transition: 0.5s;
+    transition: 0.25s;
 }
 
 input:focus {
@@ -184,4 +186,8 @@ input[type="checkbox"]:checked {
 
 #submit-times-table-settings {
     font-size: 1.25em;
+}
+
+#user-score {
+    font-size: 1em;
 }
