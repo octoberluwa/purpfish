@@ -1,7 +1,13 @@
-import React from "react"
+import React, { useState, useEffect} from "react"
 import { Link } from "react-router-dom"
 
 const HomePage = () => {
+  const [IsSpeechSynthesisSupported, setIsSpeechSynthesisSupported] = useState(false)
+
+  useEffect(() => {
+    setIsSpeechSynthesisSupported('speechSynthesis' in window)
+  }, [])
+
   return (
     <>
         <main>
@@ -11,7 +17,14 @@ const HomePage = () => {
                 Select one of the topics below to begin learning with PurpFish!.<br/>
             </p>
             <h1>PurpMaths: </h1>
+            <p>
+              Test yourself with your times tables and keep track of your score!
+            </p>
             <Link to="/timestables">Times Tables</Link>
+            {IsSpeechSynthesisSupported && <div>
+              <h1>PurpEnglish</h1>
+              <Link to="/spelling">Spelling</Link>
+            </div>}
         </main>
     </>
   )
