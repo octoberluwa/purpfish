@@ -124,7 +124,7 @@ const TimesTablesPage = () => {
                   )
               })}
             </div>
-            {!(TimeTableNumbers == ![]) && <button id="submit-times-table-settings"onClick={submitTimesTableNumbers}>Submit</button>}
+            {!(TimeTableNumbers.length == 0) && <button id="submit-times-table-settings"onClick={submitTimesTableNumbers}>Submit</button>}
           </div>}
 
 
