@@ -43,7 +43,13 @@ const SpellingPage = () => {
               <button onClick={submitWord}>Submit</button>
               {!(WordList.length == 0) && <button onClick={submitWordList}>Next</button>}
             </div>
-            <p>{ WordList }</p>
+            <div id="submitted-words">
+              {WordList.map(item => {
+                  return (
+                      <><p>{item}</p></>
+                  )
+              })}
+            </div>
             <p>
               Work in Progress.
             </p>
