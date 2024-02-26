@@ -202,6 +202,10 @@ input[type="checkbox"]:checked {
     font-size: 1.5em;
 }
 
+#spelling-settings input {
+    width: 10em;
+}
+
 #spelling-settings-buttons button {
     margin: 0.325em;
     margin-top: 1.5em;

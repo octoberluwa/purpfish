@@ -34,6 +34,13 @@ const SpellingPage = () => {
 
   const [WordToSpell, setWordToSpell] = useState("")
 
+
+  function sayWordToSpell() {
+    let utterance = new SpeechSynthesisUtterance("Hello world!");
+    speechSynthesis.speak(utterance);
+
+  }
+
   return (
     <>
         <main>
@@ -56,6 +63,8 @@ const SpellingPage = () => {
           </div>}
 
           {IsSpellingSettingsSubmitted && <div>
+            <button onClick={sayWordToSpell}>Say</button>
+            <p></p>
             <input type="text"></input>  
             <p>{ WordToSpell }</p>
           </div>}
