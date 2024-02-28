@@ -33,12 +33,43 @@ const SpellingPage = () => {
   }
 
   const [WordToSpell, setWordToSpell] = useState("")
+  const [AnswerFeedback, setAnswerFeedback] = useState("")
+  const [IsAnswerSubmitted, setIsAnswerSubmitted] = useState(false)
+
+  const wordToMark = useRef(null)
 
 
   function sayWordToSpell() {
-    let utterance = new SpeechSynthesisUtterance("Hello world!");
+    let utterance = new SpeechSynthesisUtterance(WordToSpell);
     speechSynthesis.speak(utterance);
 
+  }
+
+  function markAnswer() {
+    if (wordToMark.current.value == "") { return }
+
+    setIsAnswerSubmitted(true)
+    if (wordToMark.current.value == WordToSpell) {
+      setAnswerFeedback("Correct!")
+    } else {
+      setAnswerFeedback(`The correct spelling is '${WordToSpell}'`)
+    }
+  }
+
+  function resetForNextQuestion() {
+    setAnswerFeedback("")
+    wordToMark.current.value = ""
+    setIsAnswerSubmitted(false)
+  }
+
+  function generateWord() {
+    const randomWord = randomElementFromArray(WordList);
+    setWordToSpell(randomWord);
+  }
+
+  function generateNextWord() {
+    resetForNextQuestion()
+    generateWord()
   }
 
   return (
@@ -57,16 +88,21 @@ const SpellingPage = () => {
                   )
               })}
             </div>
-            <p>
-              Work in Progress.
-            </p>
           </div>}
 
+
+
+
+
+
           {IsSpellingSettingsSubmitted && <div>
-            <button onClick={sayWordToSpell}>Say</button>
-            <p></p>
-            <input type="text"></input>  
-            <p>{ WordToSpell }</p>
+            <section id="spelling-section">
+              <button onClick={sayWordToSpell} id="spelling-speak-button"><div id="speaker-icon">🔊</div></button>
+              <input type="text" ref={wordToMark}></input>  
+              {!IsAnswerSubmitted && <button onClick={markAnswer}>Submit</button>}
+              {IsAnswerSubmitted && <button onClick={generateNextWord}>Next Word</button>}
+            </section>
+            <p>{ AnswerFeedback }</p>
           </div>}
         </main>
     </>
