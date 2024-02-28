@@ -202,8 +202,28 @@ input[type="checkbox"]:checked {
     font-size: 1.5em;
 }
 
+#spelling-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 1.325em;
+} 
+
+#spelling-section input {
+    width: 8.75em;
+}
+
 #spelling-settings input {
     width: 10em;
+}
+
+#spelling-speak-button {
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0.75em;
+
+    font-size: 1.425em;
 }
 
 #spelling-settings-buttons button {
