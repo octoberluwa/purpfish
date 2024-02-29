@@ -22,12 +22,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     width: 100%;
     height: 100%;
     margin: 0px;
-    background-attachment: fixed;
 
+    background-attachment: fixed;
     background-color: var(--background-colour);
 }
 
@@ -68,25 +67,6 @@ p, a, label {
     text-shadow: 0.125em 0.125em 0.075em black;
 
     color: var(--text-colour);
-}
-
-#times-table-section {
-    margin: 0.0625em;
-    padding: 0.0625em;
-
-    text-align: center;
-    font-size: 2em;
-}
-
-#times-table-question {
-    margin: 0.25em;
-    font-weight: bolder;
-}
-
-#answer-feedback {
-    font-size: 0.825em;
-
-    animation: fadeIn 0.25s;
 }
 
 a {
@@ -146,6 +126,27 @@ label {
     cursor: pointer;
 }
 
+#question-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.0625em;
+    padding: 0.0625em;
+
+    text-align: center;
+    font-size: 2em;
+}
+
+#times-table-question {
+    margin: 0.25em;
+
+    font-weight: bolder;
+}
+
+#answer-feedback {
+    font-size: 0.825em;
+}
+
 #times-table-answer-input {
     width: 2.5em;  
 }
@@ -202,15 +203,7 @@ input[type="checkbox"]:checked {
     font-size: 1.5em;
 }
 
-#spelling-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    font-size: 2em;
-} 
-
-#spelling-section input {
+#spelling-input {
     width: 8em;
 }
 
@@ -221,7 +214,7 @@ input[type="checkbox"]:checked {
 #spelling-speak-button {
     width: 1.825em;
     height: 1.825em;
-    margin: 0.75em;
+    margin: 0.25em;
 
     font-size: 1.425em;
 }

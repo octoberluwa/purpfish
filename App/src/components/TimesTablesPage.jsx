@@ -132,7 +132,7 @@ const TimesTablesPage = () => {
 
 
 
-          {IsTimesTablesSettingsSubmmited && <div id="times-table-section">
+          {IsTimesTablesSettingsSubmmited && <div id="question-section">
             <p id="times-table-question">{ Question }</p>
             <input ref={UsersAnswer} type="text" id="times-table-answer-input" onKeyDown={ submitIfEnterKeyPressed }></input><br/>
             {!IsAnswerSubmitted && 

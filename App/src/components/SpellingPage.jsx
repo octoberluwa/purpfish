@@ -104,9 +104,9 @@ const SpellingPage = () => {
 
 
           {IsSpellingSettingsSubmitted && <div>
-            <section id="spelling-section">
+            <section id="question-section">
               <button onClick={sayWordToSpell} id="spelling-speak-button"><div id="speaker-icon">🔊</div></button>
-              <input type="text" ref={wordToMark}></input>  
+              <input type="text" ref={wordToMark} id="spelling-input"></input>  
               {!IsAnswerSubmitted && <button onClick={markAnswer}>Submit</button>}
               {IsAnswerSubmitted && <button onClick={generateNextWord}>Next Word</button>}
               <p>{ AnswerFeedback }</p>
