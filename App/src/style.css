@@ -207,11 +207,11 @@ input[type="checkbox"]:checked {
     flex-direction: column;
     align-items: center;
 
-    font-size: 1.325em;
+    font-size: 2em;
 } 
 
 #spelling-section input {
-    width: 8.75em;
+    width: 8em;
 }
 
 #spelling-settings input {
@@ -219,8 +219,8 @@ input[type="checkbox"]:checked {
 }
 
 #spelling-speak-button {
-    width: 2.5em;
-    height: 2.5em;
+    width: 1.825em;
+    height: 1.825em;
     margin: 0.75em;
 
     font-size: 1.425em;
