@@ -35,6 +35,10 @@ const SpellingPage = () => {
   const [WordToSpell, setWordToSpell] = useState("")
   const [AnswerFeedback, setAnswerFeedback] = useState("")
   const [IsAnswerSubmitted, setIsAnswerSubmitted] = useState(false)
+  const [QuestionsGiven, setQuestionsGiven] = useState(1)
+  const [QuestionsAnswered, setQuestionsAnswered] = useState(0)
+  const [CorrectAnswers, setCorrectAnswers] = useState(0)
+  const [ScorePercentage, setScorePercentage] = useState(0)
 
   const wordToMark = useRef(null)
 
@@ -51,9 +55,11 @@ const SpellingPage = () => {
     setIsAnswerSubmitted(true)
     if (wordToMark.current.value == WordToSpell) {
       setAnswerFeedback("Correct!")
+      setCorrectAnswers(CorrectAnswers + 1)
     } else {
       setAnswerFeedback(`The correct spelling is '${WordToSpell}'`)
     }
+    setQuestionsAnswered(QuestionsAnswered + 1)
   }
 
   function resetForNextQuestion() {
@@ -68,6 +74,8 @@ const SpellingPage = () => {
   }
 
   function generateNextWord() {
+    setQuestionsGiven(QuestionsGiven + 1)
+    setScorePercentage(Math.round((CorrectAnswers / QuestionsGiven) * 100))
     resetForNextQuestion()
     generateWord()
   }
@@ -101,8 +109,9 @@ const SpellingPage = () => {
               <input type="text" ref={wordToMark}></input>  
               {!IsAnswerSubmitted && <button onClick={markAnswer}>Submit</button>}
               {IsAnswerSubmitted && <button onClick={generateNextWord}>Next Word</button>}
+              <p>{ AnswerFeedback }</p>
+              <p id="user-score">{ CorrectAnswers }/{ QuestionsAnswered }({ ScorePercentage }%)</p>
             </section>
-            <p>{ AnswerFeedback }</p>
           </div>}
         </main>
     </>
