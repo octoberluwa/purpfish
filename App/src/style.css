@@ -26,6 +26,8 @@ body {
     height: 100%;
     margin: 0px;
 
+    font-family: monospace;
+
     background-attachment: fixed;
     background-color: var(--background-colour);
 }
@@ -41,32 +43,31 @@ main {
     box-shadow: 1em 1em black;
 
     animation: fadeIn 0.25s;
-    transition: all 0.25s;
 }
 
 h1 {
     font-size: 2.5em;
-    font-family: monospace;
     font-weight: bold;
 
-    text-decoration: underline;
     color: var(--accent-colour);
+
+    text-decoration: underline;
 }
 
 #main-header {
     text-align: center;
     font-size: 6vw;
+    
     text-decoration: none;
     text-shadow: 0.125em 0.125em black;
 }
 
 p, a, label {
-    font-family: monospace;
     font-size: 1.625em;
 
-    text-shadow: 0.125em 0.125em 0.075em black;
-
     color: var(--text-colour);
+
+    text-shadow: 0.125em 0.125em 0.075em black;
 }
 
 a {
@@ -86,16 +87,15 @@ a:active {
 
 button {
     margin: 0.75em;
-    padding: 0.25em;
-    background: none;
-    
+    padding: 0.25em;    
 
     font-size: 0.825em;
     color: var(--text-colour);
 
+    background: none;
+
     border: 0.085em solid var(--accent-colour);
     border: 0.1em outset var(--accent-colour);
-
     border-radius: 0.175em; 
 }
 
@@ -107,6 +107,7 @@ input {
     text-align: center;
     font-size: 1em;
     color: var(--text-colour);
+    
     background-color: var(--background-colour);
 
     border: 0.0825em solid var(--accent-colour);
@@ -114,6 +115,26 @@ input {
     border-radius: 0.175em;
 
     transition: 0.25s;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    
+    width: 1.25em;
+    height: 1.25em;
+
+    position: relative;
+    vertical-align: bottom;
+    top: 0.25em;
+
+    border: 0.1em inset var(--accent-colour);
+
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--accent-colour);
 }
 
 input:focus {
@@ -137,14 +158,12 @@ label {
     font-size: 2em;
 }
 
-#times-table-question {
-    margin: 0.25em;
-
-    font-weight: bolder;
-}
-
 #answer-feedback {
     font-size: 0.825em;
+}
+
+#user-score {
+    font-size: 1em;
 }
 
 #times-table-answer-input {
@@ -167,31 +186,14 @@ label {
     margin-right: 0.75em;
 }
 
-input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    
-    width: 1.25em;
-    height: 1.25em;
-    vertical-align: bottom;
-    position: relative;
-    top: 0.25em;
-
-    border: 0.1em inset var(--accent-colour);
-
-    cursor: pointer;
-}
-
-input[type="checkbox"]:checked {
-    background-color: var(--accent-colour);
-}
-
 #submit-times-table-settings {
     font-size: 1.25em;
 }
 
-#user-score {
-    font-size: 1em;
+#times-table-question {
+    margin: 0.25em;
+
+    font-weight: bolder;
 }
 
 #spelling-settings {
@@ -200,15 +202,30 @@ input[type="checkbox"]:checked {
     align-items: center;
     justify-content: center;
 
-    font-size: 1.5em;
-}
 
-#spelling-input {
-    width: 8em;
 }
 
 #spelling-settings input {
     width: 10em;
+
+    font-size: 1.5em;
+}
+
+#spelling-settings-buttons {
+    font-size: 1.5em;
+}
+
+#spelling-settings-buttons button {
+    margin: 0.325em;
+    margin-top: 1.5em;
+}
+
+#submitted-words {
+    text-align: center;
+}
+
+.task-hint {
+    text-align: center;
 }
 
 #spelling-speak-button {
@@ -219,11 +236,6 @@ input[type="checkbox"]:checked {
     font-size: 1.425em;
 }
 
-#spelling-settings-buttons button {
-    margin: 0.325em;
-    margin-top: 1.5em;
-}
-
-#submitted-words {
-    text-align: center;
+#spelling-input {
+    width: 7.5em;
 }

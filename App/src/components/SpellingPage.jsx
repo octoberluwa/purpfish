@@ -80,23 +80,46 @@ const SpellingPage = () => {
     generateWord()
   }
 
+  function submitIfEnterKeyPressed(keyPressed) {
+    if (keyPressed.keyCode !== 13) { return }
+
+    if (IsAnswerSubmitted) {
+      generateNextWord()
+    } else {
+      markAnswer()
+    }
+  }
+
+
+  function submitWordIfEnterKeyPressed(keyPressed) {
+    if (keyPressed.keyCode !== 13) { return }
+
+    submitWord()
+  }
+
   return (
     <>
         <main>
-          {!IsSpellingSettingsSubmitted && <div id="spelling-settings">
-            <input type="text" ref={wordToSubmit}></input>
+          {!IsSpellingSettingsSubmitted && <section id="spelling-settings">
+            <p>
+              <b><i>Type the words you want to spell and submit them <u>one at a time</u>:</i></b><br/>
+              <br/>
+              The words to spell will be randomised from the selection.<br/>
+              <br/>
+            </p>
+            <input type="text" ref={wordToSubmit} onKeyDown={submitWordIfEnterKeyPressed}></input>
             <div id="spelling-settings-buttons">
               <button onClick={submitWord}>Submit</button>
               {!(WordList.length == 0) && <button onClick={submitWordList}>Next</button>}
             </div>
-            <div id="submitted-words">
+            <section id="submitted-words">
               {WordList.map(item => {
                   return (
                       <><p>{item}</p></>
                   )
               })}
-            </div>
-          </div>}
+            </section>
+          </section>}
 
 
 
@@ -104,12 +127,13 @@ const SpellingPage = () => {
 
 
           {IsSpellingSettingsSubmitted && <div>
+            <p class="task-hint"><i>Click the button to hear the word to spell.</i></p>
             <section id="question-section">
               <button onClick={sayWordToSpell} id="spelling-speak-button"><div id="speaker-icon">🔊</div></button>
-              <input type="text" ref={wordToMark} id="spelling-input"></input>  
+              <input type="text" ref={wordToMark} id="spelling-input" onKeyDown={ submitIfEnterKeyPressed }></input>  
               {!IsAnswerSubmitted && <button onClick={markAnswer}>Submit</button>}
               {IsAnswerSubmitted && <button onClick={generateNextWord}>Next Word</button>}
-              <p>{ AnswerFeedback }</p>
+              <p id="answer-feedback">{ AnswerFeedback }</p>
               <p id="user-score">{ CorrectAnswers }/{ QuestionsAnswered }({ ScorePercentage }%)</p>
             </section>
           </div>}

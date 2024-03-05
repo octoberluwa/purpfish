@@ -110,7 +110,7 @@ const TimesTablesPage = () => {
   return (
     <>
         <main>
-          {!IsTimesTablesSettingsSubmmited && <div id="times-table-settings">
+          {!IsTimesTablesSettingsSubmmited && <section id="times-table-settings">
             <p>
               <b><i>Select the Times Tables that you want to practice:</i></b><br/>
               <br/>
@@ -125,14 +125,14 @@ const TimesTablesPage = () => {
               })}
             </div>
             {!(TimeTableNumbers.length == 0) && <button id="submit-times-table-settings"onClick={submitTimesTableNumbers}>Submit</button>}
-          </div>}
+          </section>}
 
 
 
 
 
 
-          {IsTimesTablesSettingsSubmmited && <div id="question-section">
+          {IsTimesTablesSettingsSubmmited && <section id="question-section">
             <p id="times-table-question">{ Question }</p>
             <input ref={UsersAnswer} type="text" id="times-table-answer-input" onKeyDown={ submitIfEnterKeyPressed }></input><br/>
             {!IsAnswerSubmitted && 
@@ -140,7 +140,7 @@ const TimesTablesPage = () => {
             {IsAnswerSubmitted && <button id="next-question-button" onClick={ generateNextProductPair }>Next Question</button>}
             <p id="answer-feedback">{ AnswerFeedback }</p>
             <p id="user-score">{ CorrectAnswers }/{ QuestionsAnswered }({ ScorePercentage }%)</p>
-          </div>}
+          </section>}
         </main>
     </>
   )
