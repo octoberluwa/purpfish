@@ -77,11 +77,11 @@ const SpellingPage = () => {
   }
 
   function generateNextWord() {
+    generateWord()
     setIsAnswerSubmitted(false)
     setQuestionsGiven(QuestionsGiven + 1)
     setScorePercentage(Math.round((CorrectAnswers / QuestionsGiven) * 100))
     resetForNextQuestion()
-    generateWord()
   }
 
   function submitIfEnterKeyPressed(keyPressed) {
