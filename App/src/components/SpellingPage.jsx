@@ -35,6 +35,7 @@ const SpellingPage = () => {
   const [WordToSpell, setWordToSpell] = useState("")
   const [AnswerFeedback, setAnswerFeedback] = useState("")
   const [IsAnswerSubmitted, setIsAnswerSubmitted] = useState(false)
+  const [IsAnswerCorrect, setIsAnswerCorrect] = useState(false)
   const [QuestionsGiven, setQuestionsGiven] = useState(1)
   const [QuestionsAnswered, setQuestionsAnswered] = useState(0)
   const [CorrectAnswers, setCorrectAnswers] = useState(0)
@@ -54,9 +55,11 @@ const SpellingPage = () => {
 
     setIsAnswerSubmitted(true)
     if (wordToMark.current.value == WordToSpell) {
+      setIsAnswerCorrect(true)
       setAnswerFeedback("Correct!")
       setCorrectAnswers(CorrectAnswers + 1)
     } else {
+      setIsAnswerCorrect(false)
       setAnswerFeedback(`The correct spelling is '${WordToSpell}'`)
     }
     setQuestionsAnswered(QuestionsAnswered + 1)
@@ -74,6 +77,7 @@ const SpellingPage = () => {
   }
 
   function generateNextWord() {
+    setIsAnswerSubmitted(false)
     setQuestionsGiven(QuestionsGiven + 1)
     setScorePercentage(Math.round((CorrectAnswers / QuestionsGiven) * 100))
     resetForNextQuestion()
@@ -129,11 +133,19 @@ const SpellingPage = () => {
           {IsSpellingSettingsSubmitted && <div>
             <p class="task-hint"><i>Click the button to hear the word to spell.</i></p>
             <section id="question-section">
-              <button onClick={sayWordToSpell} id="spelling-speak-button"><div id="speaker-icon">🔊</div></button>
-              <input type="text" ref={wordToMark} id="spelling-input" onKeyDown={ submitIfEnterKeyPressed }></input>  
-              {!IsAnswerSubmitted && <button onClick={markAnswer}>Submit</button>}
-              {IsAnswerSubmitted && <button onClick={generateNextWord}>Next Word</button>}
-              <p id="answer-feedback">{ AnswerFeedback }</p>
+              <button onClick={sayWordToSpell} id="spelling-speak-button"><div id="speaker-icon">🔊</div></button>  
+              {!IsAnswerSubmitted &&
+              <div> 
+                <input type="text" ref={wordToMark} id="spelling-input" onKeyDown={ submitIfEnterKeyPressed } /><br/>
+                <button onClick={markAnswer}>Submit</button>
+              </div>}
+              {IsAnswerSubmitted && 
+              <div>
+                {!IsAnswerCorrect && <p>{ wordToMark.current.value} ✗</p>}
+                <p>{ WordToSpell } ✓</p>
+                <button onClick={generateNextWord}>Next Word</button>
+                <p id="answer-feedback">{ AnswerFeedback }</p>
+              </div>}
               <p id="user-score">{ CorrectAnswers }/{ QuestionsAnswered }({ ScorePercentage }%)</p>
             </section>
           </div>}

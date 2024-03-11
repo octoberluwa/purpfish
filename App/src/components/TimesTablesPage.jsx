@@ -63,6 +63,7 @@ const TimesTablesPage = () => {
   const [Question, setQuestion] = useState(0)
   const [AnswerFeedback, setAnswerFeedback] = useState("")
   const [IsAnswerSubmitted, setIsAnswerSubmitted] = useState(false)
+  const [IsAnswerCorrect, setIsAnswerCorrect] = useState(false)
   const [QuestionsGiven, setQuestionsGiven] = useState(1)
   const [QuestionsAnswered, setQuestionsAnswered] = useState(0)
   const [CorrectAnswers, setCorrectAnswers] = useState(0)
@@ -76,12 +77,13 @@ const TimesTablesPage = () => {
   }
 
   function generateNextProductPair() {
-    setQuestionsGiven(QuestionsGiven + 1)
-    setScorePercentage(Math.round((CorrectAnswers / QuestionsGiven) * 100))
-    resetForNextQuestion()
     generateProductPair()
     setQuestion(generateQuestion())
     setAnswer(generateAnswer())
+    setIsAnswerSubmitted(false)
+    setQuestionsGiven(QuestionsGiven + 1)
+    setScorePercentage(Math.round((CorrectAnswers / QuestionsGiven) * 100))
+    resetForNextQuestion()
   }
 
   function markAnswer() {
@@ -89,9 +91,11 @@ const TimesTablesPage = () => {
 
     setIsAnswerSubmitted(true)
     if (UsersAnswer.current.value == Answer) {
+      setIsAnswerCorrect(true)
       setAnswerFeedback("Correct!")
       setCorrectAnswers(CorrectAnswers + 1)
     } else {
+      setIsAnswerCorrect(false)
       setAnswerFeedback(`The correct answer is ${Answer}.`)
     }
     setQuestionsAnswered(QuestionsAnswered + 1)
@@ -134,11 +138,18 @@ const TimesTablesPage = () => {
 
           {IsTimesTablesSettingsSubmmited && <section id="question-section">
             <p id="times-table-question">{ Question }</p>
-            <input ref={UsersAnswer} type="text" id="times-table-answer-input" onKeyDown={ submitIfEnterKeyPressed }></input><br/>
             {!IsAnswerSubmitted && 
-            <button id="submit-answer-button" onClick={ markAnswer }>Submit</button>}
-            {IsAnswerSubmitted && <button id="next-question-button" onClick={ generateNextProductPair }>Next Question</button>}
-            <p id="answer-feedback">{ AnswerFeedback }</p>
+            <div>
+              <input ref={UsersAnswer} type="text" id="times-table-answer-input" onKeyDown={ submitIfEnterKeyPressed }/><br/>
+              <button id="submit-answer-button" onClick={ markAnswer }>Submit</button>
+            </div>}
+            {IsAnswerSubmitted && 
+            <div>
+              {!IsAnswerCorrect && <p>{ UsersAnswer.current.value} ✗</p>}
+              <p>{ Answer } ✓</p>
+              <button id="next-question-button" onClick={ generateNextProductPair }>Next Question</button>
+              <p id="answer-feedback">{ AnswerFeedback }</p>
+            </div>}
             <p id="user-score">{ CorrectAnswers }/{ QuestionsAnswered }({ ScorePercentage }%)</p>
           </section>}
         </main>
