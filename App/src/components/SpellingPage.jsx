@@ -54,7 +54,7 @@ const SpellingPage = () => {
     if (wordToMark.current.value == "") { return }
 
     setIsAnswerSubmitted(true)
-    if (wordToMark.current.value == WordToSpell) {
+    if (wordToMark.current.value.toLowerCase() == WordToSpell.toLowerCase()) {
       setIsAnswerCorrect(true)
       setAnswerFeedback("Correct!")
       setCorrectAnswers(CorrectAnswers + 1)
