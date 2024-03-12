@@ -133,7 +133,7 @@ const SpellingPage = () => {
           {IsSpellingSettingsSubmitted && <div>
             <p class="task-hint"><i>Click the button to hear the word to spell.</i></p>
             <section id="question-section">
-              <button onClick={sayWordToSpell} id="spelling-speak-button"><div id="speaker-icon">🔊</div></button>  
+              <button onClick={sayWordToSpell} id="spelling-speak-button"><span class="material-symbols-outlined">volume_up</span></button>  
               {!IsAnswerSubmitted &&
               <div> 
                 <input type="text" ref={wordToMark} id="spelling-input" onKeyDown={ submitIfEnterKeyPressed } /><br/>

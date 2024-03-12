@@ -1,5 +1,5 @@
 :root {
-    --accent-colour: hsla(295deg, 85%, 35%, 0.95);
+    --accent-colour: hsla(295deg, 85%, 45%, 1.0);
     --text-colour: hsla(300deg, 65%, 92.5%, 0.85);
     --background-colour: hsla(270deg, 10%, 8.25%, 1.0);
 }
@@ -229,11 +229,24 @@ label {
 }
 
 #spelling-speak-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 1.825em;
     height: 1.825em;
     margin: 0.25em;
 
     font-size: 1.425em;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+
+  font-size: 1em;
 }
 
 #spelling-input {
