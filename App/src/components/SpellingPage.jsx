@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import ScrapedImage from './ScrapedImage'
 
 const SpellingPage = () => {
   const [WordList, setWordList] = useState([])
@@ -142,7 +141,7 @@ const SpellingPage = () => {
               </div>}
               {IsAnswerSubmitted && 
               <div>
-                {!IsAnswerCorrect && <p>{ wordToMark.current.value} ✗</p>}
+                {!IsAnswerCorrect && <p>"{ wordToMark.current.value}" ✗</p>}
                 <p>{ WordToSpell } ✓</p>
                 <button onClick={generateNextWord}>Next Word</button>
                 <p id="answer-feedback">{ AnswerFeedback }</p>

@@ -145,7 +145,7 @@ const TimesTablesPage = () => {
             </div>}
             {IsAnswerSubmitted && 
             <div>
-              {!IsAnswerCorrect && <p>{ UsersAnswer.current.value} ✗</p>}
+              {!IsAnswerCorrect && <p>"{ UsersAnswer.current.value}" ✗</p>}
               <p>{ Answer } ✓</p>
               <button id="next-question-button" onClick={ generateNextProductPair }>Next Question</button>
               <p id="answer-feedback">{ AnswerFeedback }</p>
