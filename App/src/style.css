@@ -28,15 +28,19 @@ body {
 
     font-family: monospace;
 
-    background-attachment: fixed;
-    background-color: var(--background-colour);    background-color: var(--background-colour);
-    background-image: url(./images/purpfish_coral.png) cover;
+    background-color: var(--background-colour);
+    background-image: url(./images/purpfish_coral.png);
+    background-size: 90em;
+    background-position: bottom;
+    background-repeat: repeat-x;
 }
 
 main {
     width: 65vw;
     padding: 2.5em;
     margin: 0px;
+
+    background-color: var(--background-colour);
 
     border: 0.25em outset var(--accent-colour);
     border-radius: 0.325em;
