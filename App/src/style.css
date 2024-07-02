@@ -29,7 +29,8 @@ body {
     font-family: monospace;
 
     background-attachment: fixed;
-    background-color: var(--background-colour);
+    background-color: var(--background-colour);    background-color: var(--background-colour);
+    background-image: url(./images/purpfish_coral.png) cover;
 }
 
 main {
@@ -43,6 +44,17 @@ main {
     box-shadow: 1em 1em black;
 
     animation: fadeIn 0.25s;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#purpfish-logo {
+    width: 7.5vw;
+    padding: 1vw;
 }
 
 h1 {
