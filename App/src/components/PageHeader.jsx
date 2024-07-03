@@ -1,9 +1,10 @@
 import React from 'react'
+import logo from '../images/purpfish_logo.png'
 
 const PageHeader = () => {
   return (
     <header>
-        <img src="../src/images/purpfish_logo.png" id="purpfish-logo"/>
+        <img src={logo} id="purpfish-logo"/>
         <h1 id="main-header">purpfish</h1>
     </header>
   )
