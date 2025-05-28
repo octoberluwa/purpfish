@@ -14,7 +14,6 @@ const HomePage = () => {
             <h1>Welcome to PurpFish!</h1>
             <p>
                 I hope you enjoy your learning here!<br/>
-                Select one of the topics below to begin learning with PurpFish!.<br/>
             </p>
             <h1>PurpMaths: </h1>
             <p>
@@ -22,8 +21,16 @@ const HomePage = () => {
             </p>
             <Link to="/timestables">Times Tables</Link>
             {IsSpeechSynthesisSupported && <div>
-              <h1>PurpEnglish</h1>
+              <h1>PurpEnglish: </h1>
+              <p>
+                Test your spelling capabilities using custom words and score high!
+              </p>
               <Link to="/spelling">Spelling</Link>
+              <h1>PurpTalk: </h1>
+              <p>
+                Ace social situations and keep the conversation going!
+              </p>
+              <Link to="/social-info">Birthdays</Link>
             </div>}
         </main>
     </>
