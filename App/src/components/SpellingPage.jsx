@@ -77,7 +77,10 @@ const SpellingPage = () => {
   }
 
   function generateNextWord() {
-    generateWord()
+    if (IsAnswerCorrect) {
+      generateWord()
+    }
+    
     setIsAnswerSubmitted(false)
     setQuestionsGiven(QuestionsGiven + 1)
     setScorePercentage(Math.round((CorrectAnswers / QuestionsGiven) * 100))
@@ -141,7 +144,7 @@ const SpellingPage = () => {
               </div>}
               {IsAnswerSubmitted && 
               <div>
-                {!IsAnswerCorrect && <p>"{ wordToMark.current.value}" ✗</p>}
+                {!IsAnswerCorrect && <p>"{ wordToMark.current.value }" ✗</p>}
                 <p>{ WordToSpell } ✓</p>
                 <button onClick={generateNextWord}>Next Word</button>
                 <p id="answer-feedback">{ AnswerFeedback }</p>
