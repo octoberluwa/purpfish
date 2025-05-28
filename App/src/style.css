@@ -163,15 +163,15 @@ label {
     cursor: pointer;
 }
 
-#question-section {
+#question-section, #social-info-questions {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0.0625em;
-    padding: 0.0625em;
+    margin: 0.05em;
+    padding: 0.05em;
 
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 #answer-feedback {
@@ -217,8 +217,6 @@ label {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-
 }
 
 #spelling-settings input {
@@ -267,4 +265,33 @@ label {
 
 #spelling-input {
     width: 7.5em;
+}
+
+#social-info-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#social-info-settings input[type="date"]{
+    text-align: center;
+    width: 14.25em;
+}
+
+#social-info-settings button {
+    margin-top: 1.5em;
+
+    font-size: 1.25em;
+}
+
+#social-info-questions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#social-info-questions input {
+    width: 20em;
 }
