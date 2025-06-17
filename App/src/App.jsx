@@ -4,7 +4,9 @@ import PageHeader from "./components/PageHeader"
 import TimesTablesPage from "./components/TimesTablesPage"
 import SpellingPage from "./components/SpellingPage"
 import SocialInfoPage from "./components/SocialInfoPage"
+import Essential200Page from "./components/Essential200Page"
 import './style.css'
+
 
 
 const App = () => {
@@ -16,6 +18,7 @@ const App = () => {
         <Route path="/timestables" element={ <TimesTablesPage />}/>
         <Route path="/spelling" element={ <SpellingPage />}/>
         <Route path="/social-info" element={ <SocialInfoPage />}/>
+        <Route path="/e200" element={ <Essential200Page />}/>
       </Routes>
     </>
   )
